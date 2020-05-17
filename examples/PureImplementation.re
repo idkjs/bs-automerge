@@ -1,9 +1,14 @@
 /** Demo that shows experimental purely functional implementation of the {{: https:/www.cl.cam.ac.uk/~arb33/papers/KleppmannBeresford-CRDT-JSON-TPDS2017.pdf} original paper}. It is much smaller than Automerge, however it lacks a lot of features and performance improvements Automerge added on top of the article. */
 
+let add = [%raw {|
+  function(a, b) {
+    console.log("hello from raw JavaScript!");
+    return a + b
+  }
+|}];
 let logState = s => {
-  let reformat: string => string = [%bs.raw
-    s => "return JSON.stringify(JSON.parse(s), null, 3);"
-  ];
+  let reformat: string => string = s =>
+    [%raw {|" JSON.stringify(JSON.parse(s), null, 3)"|}];
   Js.log(reformat(Json.stringify(AMPure.encodeState(s))));
 };
 
