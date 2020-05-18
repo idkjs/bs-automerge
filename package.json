@@ -24,7 +24,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "automerge": "^0.8.0",
+    "automerge": "^0.14.0",
     "bs-immutablejs": "github:reasonml-community/bs-immutablejs",
     "rex-json": "git+https://github.com/idkjs/rex-json.git"
   },

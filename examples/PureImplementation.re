@@ -7,7 +7,7 @@ let add = [%raw {|
   }
 |}];
 let logState = s => {
-  let reformat: string => string = s =>
+  let reformat: string => string =
     [%raw {|" JSON.stringify(JSON.parse(s), null, 3)"|}];
   Js.log(reformat(Json.stringify(AMPure.encodeState(s))));
 };
